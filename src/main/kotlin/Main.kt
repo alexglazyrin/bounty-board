@@ -12,6 +12,7 @@ fun main(args: Array<String>) {
     val quest: String = when (playerLevel) {
         1 -> "Meet Mr. Bubbles in the land of soft things."
         in 2..5 -> {
+            //new branch
             val canTalkToBarbarians = !hasAngeredBarbarians && (hasBefriendedBarbarians || playerClass == "barbarian")
             if (canTalkToBarbarians) {
                 "Convince the barbarians to call off their invasion."
