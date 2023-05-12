@@ -17,16 +17,16 @@ fun main(args: Array<String>) {
 
 private fun readBountyBoard(){
     println("The hero approach the bounty board. It reads:")
-    println(obtainQuest(playerLevel,"paladin",true, false))
+    println(obtainQuest(playerLevel))
 }
 
 private fun obtainQuest(
     playerLevel: Int,
-    playerClass: String,
-    hasBefriendedBarbarians: Boolean,
-    hasAngeredBarbarians: Boolean
+    playerClass: String = "paladin",
+    hasBefriendedBarbarians: Boolean = true,
+    hasAngeredBarbarians: Boolean = false
 ): String {
-    val quest: String = when (playerLevel) {
+    return when (playerLevel) {
         1 -> "Meet Mr. Bubbles in the land of soft things."
         in 2..5 -> {
             val canTalkToBarbarians = !hasAngeredBarbarians && (hasBefriendedBarbarians || playerClass == "barbarian")
@@ -41,5 +41,4 @@ private fun obtainQuest(
         8 -> "Defeat Nogartse, bringer of death and eater of worlds."
         else -> "There are no quests right now."
     }
-    return quest
 }
