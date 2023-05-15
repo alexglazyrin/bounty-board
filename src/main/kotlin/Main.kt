@@ -1,23 +1,29 @@
 const val HERO_NAME = "Madrigal"
 var playerLevel = 5
-fun main(args: Array<String>) {
-    println("The hero announces her presence to the world.")
 
-    println(HERO_NAME)
-    println(playerLevel)
+fun main(args: Array<String>) {
+    println("$HERO_NAME announces her presence to the world.")
+
+    println("What level is $HERO_NAME?")
+    val input = readLine()
+    println("$HERO_NAME's level is $input")
     readBountyBoard()
 
     println("Time passes...")
-    println("The hero returns from her quest.")
+    println("$HERO_NAME returns from her quest.")
 
     playerLevel += 1
     println(playerLevel)
     readBountyBoard()
 }
 
-private fun readBountyBoard(){
-    println("The hero approach the bounty board. It reads:")
-    println(obtainQuest(playerLevel))
+private fun readBountyBoard() {
+    println(
+        """
+            |HERO_NAME approach the bounty board. It reads:
+            |    "${obtainQuest(playerLevel)}"
+            """.trimMargin()
+    )
 }
 
 private fun obtainQuest(
